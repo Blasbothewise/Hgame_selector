@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VndbForm));
             this.srch_tbx = new System.Windows.Forms.TextBox();
             this.srch_lbl = new System.Windows.Forms.Label();
             this.sub_btn = new System.Windows.Forms.Button();
@@ -68,6 +69,7 @@
             this.Controls.Add(this.srch_lbl);
             this.Controls.Add(this.srch_tbx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VndbForm";

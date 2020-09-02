@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddForm));
             this.AdHg_grpbx = new System.Windows.Forms.GroupBox();
             this.btn_VNDB = new System.Windows.Forms.Button();
             this.btn_DLSITE = new System.Windows.Forms.Button();
@@ -275,6 +276,7 @@
             this.ClientSize = new System.Drawing.Size(678, 331);
             this.Controls.Add(this.AdHg_grpbx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddForm";

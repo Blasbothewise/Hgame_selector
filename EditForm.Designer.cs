@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             this.EdtHg_grpBx = new System.Windows.Forms.GroupBox();
+            this.EdtHg_rmv_btn = new System.Windows.Forms.Button();
+            this.ChkBx_Rmv = new System.Windows.Forms.CheckBox();
             this.EdtTag_lbl = new System.Windows.Forms.Label();
             this.EdtHg_srch_lbl = new System.Windows.Forms.Label();
             this.ChkBx_Edit = new System.Windows.Forms.CheckBox();
@@ -50,8 +53,6 @@
             this.EdtIcn_tbx = new System.Windows.Forms.TextBox();
             this.EdtExe_tbx = new System.Windows.Forms.TextBox();
             this.EdtNm_lbl = new System.Windows.Forms.Label();
-            this.ChkBx_Rmv = new System.Windows.Forms.CheckBox();
-            this.EdtHg_rmv_btn = new System.Windows.Forms.Button();
             this.EdtHg_grpBx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EdtHg_img)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +88,28 @@
             this.EdtHg_grpBx.TabIndex = 13;
             this.EdtHg_grpBx.TabStop = false;
             this.EdtHg_grpBx.Text = "Find and edit Hgame";
+            // 
+            // EdtHg_rmv_btn
+            // 
+            this.EdtHg_rmv_btn.Enabled = false;
+            this.EdtHg_rmv_btn.Location = new System.Drawing.Point(3, 332);
+            this.EdtHg_rmv_btn.Name = "EdtHg_rmv_btn";
+            this.EdtHg_rmv_btn.Size = new System.Drawing.Size(518, 53);
+            this.EdtHg_rmv_btn.TabIndex = 39;
+            this.EdtHg_rmv_btn.Text = "remove";
+            this.EdtHg_rmv_btn.UseVisualStyleBackColor = true;
+            this.EdtHg_rmv_btn.Click += new System.EventHandler(this.EdtHg_rmv_btn_Click);
+            // 
+            // ChkBx_Rmv
+            // 
+            this.ChkBx_Rmv.AutoSize = true;
+            this.ChkBx_Rmv.Location = new System.Drawing.Point(6, 309);
+            this.ChkBx_Rmv.Name = "ChkBx_Rmv";
+            this.ChkBx_Rmv.Size = new System.Drawing.Size(103, 17);
+            this.ChkBx_Rmv.TabIndex = 38;
+            this.ChkBx_Rmv.Text = "Remove Hgame";
+            this.ChkBx_Rmv.UseVisualStyleBackColor = true;
+            this.ChkBx_Rmv.CheckedChanged += new System.EventHandler(this.ChkBx_Rmv_CheckedChanged);
             // 
             // EdtTag_lbl
             // 
@@ -282,35 +305,14 @@
             this.EdtNm_lbl.TabIndex = 18;
             this.EdtNm_lbl.Text = "Name";
             // 
-            // ChkBx_Rmv
-            // 
-            this.ChkBx_Rmv.AutoSize = true;
-            this.ChkBx_Rmv.Location = new System.Drawing.Point(6, 309);
-            this.ChkBx_Rmv.Name = "ChkBx_Rmv";
-            this.ChkBx_Rmv.Size = new System.Drawing.Size(103, 17);
-            this.ChkBx_Rmv.TabIndex = 38;
-            this.ChkBx_Rmv.Text = "Remove Hgame";
-            this.ChkBx_Rmv.UseVisualStyleBackColor = true;
-            this.ChkBx_Rmv.CheckedChanged += new System.EventHandler(this.ChkBx_Rmv_CheckedChanged);
-            // 
-            // EdtHg_rmv_btn
-            // 
-            this.EdtHg_rmv_btn.Enabled = false;
-            this.EdtHg_rmv_btn.Location = new System.Drawing.Point(3, 332);
-            this.EdtHg_rmv_btn.Name = "EdtHg_rmv_btn";
-            this.EdtHg_rmv_btn.Size = new System.Drawing.Size(518, 53);
-            this.EdtHg_rmv_btn.TabIndex = 39;
-            this.EdtHg_rmv_btn.Text = "remove";
-            this.EdtHg_rmv_btn.UseVisualStyleBackColor = true;
-            this.EdtHg_rmv_btn.Click += new System.EventHandler(this.EdtHg_rmv_btn_Click);
-            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 551);
+            this.ClientSize = new System.Drawing.Size(675, 546);
             this.Controls.Add(this.EdtHg_grpBx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditForm";

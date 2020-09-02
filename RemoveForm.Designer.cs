@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoveForm));
             this.EdtHg_grpBx = new System.Windows.Forms.GroupBox();
             this.Hg_srch_lbl = new System.Windows.Forms.Label();
             this.JPNm_tbx = new System.Windows.Forms.TextBox();
@@ -177,6 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 241);
             this.Controls.Add(this.EdtHg_grpBx);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RemoveForm";
             this.Text = "Remove Hgame";
             this.EdtHg_grpBx.ResumeLayout(false);
