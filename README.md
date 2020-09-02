@@ -15,4 +15,4 @@ A visualiser/manager for hgames and VNs.
 
 * Add VNDB tag dump
 * Use tag dump to apply verbrose VNDB tags to game records
-* UX design
+* An actual house style.
