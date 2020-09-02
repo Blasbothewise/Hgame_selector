@@ -9,6 +9,11 @@ This app acts as a visualiser/manager for hgames and VNs.
   * DLsite : Cover art
 * Default windows form app aeshetic, oh la la.
 
+# Basic usage
+
+* Left click on their icons to run games.
+* Right click to open their editor/data menu.
+* Add games via Edit/"Add Hgame"
 
 # Things to do
 
