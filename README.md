@@ -11,8 +11,8 @@ This app acts as a visualiser/manager for hgames and VNs.
 
 # Basic usage
 
-* Left click on their icons to run games.
-* Right click to open their editor/data menu.
+* Left click on your games' icons to run them.
+* Right click to open their editor/data menus.
 * Add games via Edit/"Add Hgame"
 
 # Things to do
