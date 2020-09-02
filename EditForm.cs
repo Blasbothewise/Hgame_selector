@@ -257,11 +257,12 @@ namespace Hgame_selector
                     old_toEdit.genres = genres;
                 }
 
-                if (File.Exists(Application.StartupPath + "\\src\\images\\" + oldicon_dir))
+                if (!old_toEdit.iconName.Equals(oldicon_dir))
                 {
-                    Console.WriteLine(Application.StartupPath + "\\src\\images\\" + oldicon_dir);
-
-                    File.Delete(Application.StartupPath + "\\src\\images\\" + oldicon_dir);
+                    if (File.Exists(Application.StartupPath + "\\src\\images\\" + oldicon_dir))
+                    {
+                        File.Delete(Application.StartupPath + "\\src\\images\\" + oldicon_dir);
+                    }
                 }
 
                 Mainform.col.genPool("", "All");
