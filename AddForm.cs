@@ -48,7 +48,7 @@ namespace Hgame_selector
                 File.Delete(Application.StartupPath + "\\src\\images\\temp" + tempExtension);
             }
         }
-        //
+        
         private void sizeForm()
         {
             int scrn_w = Screen.PrimaryScreen.Bounds.Width, scrn_h = Screen.PrimaryScreen.Bounds.Height;
