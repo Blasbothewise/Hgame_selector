@@ -1,6 +1,5 @@
 # Hgame_selector
-A visualiser/manager for hgames and VNs.
-
+This app acts as a visualiser/manager for hgames and VNs.
 
 # Core features
 
