@@ -84,7 +84,7 @@ namespace Hgame_selector
                 }
                 else if (srchType.Equals("Developer"))
                 {
-                    if (Hgames[i].dev.Equals(srchTerm))
+                    if (Hgames[i].dev.Equals(srchTerm, StringComparison.CurrentCultureIgnoreCase))
                     {
                         Itempool.Add(Hgames[i]);
                     }
@@ -98,6 +98,8 @@ namespace Hgame_selector
                     //Should never get here so do nothing.
                 }
             }
+
+            last_index = (int)Itempool.Count() / 15;
         }
 
         public void AddHgame(Hgame input)

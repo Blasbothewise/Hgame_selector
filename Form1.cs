@@ -35,6 +35,7 @@ namespace Hgame_selector
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             deserialiseJSON();
+            col.genPool("","All");
 
             if (!Directory.Exists(Application.StartupPath + "\\src\\images"))
             {
