@@ -26,5 +26,13 @@ namespace Hgame_selector
             parentForm.pull_Dlsite_data(Code_tbx.Text);
             this.Close();
         }
+
+        private void DlsiteForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

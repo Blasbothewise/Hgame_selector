@@ -71,10 +71,12 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DlsiteForm";
             this.Text = "Import DLsite info";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DlsiteForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

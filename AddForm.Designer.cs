@@ -277,11 +277,13 @@
             this.Controls.Add(this.AdHg_grpbx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Add hgame";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddForm_KeyDown);
             this.AdHg_grpbx.ResumeLayout(false);
             this.AdHg_grpbx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nwHg_img)).EndInit();

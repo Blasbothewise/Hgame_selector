@@ -415,6 +415,14 @@ namespace Hgame_selector
             }
         }
 
+        private void EditForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
         private void EdtHg_rmv_btn_Click(object sender, EventArgs e)
         {
             int result;

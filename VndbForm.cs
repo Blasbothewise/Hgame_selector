@@ -28,5 +28,13 @@ namespace Hgame_selector
 
             this.Close();
         }
+
+        private void VndbForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

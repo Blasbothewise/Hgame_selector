@@ -313,11 +313,13 @@
             this.Controls.Add(this.EdtHg_grpBx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Edit hgame";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditForm_KeyDown);
             this.EdtHg_grpBx.ResumeLayout(false);
             this.EdtHg_grpBx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EdtHg_img)).EndInit();

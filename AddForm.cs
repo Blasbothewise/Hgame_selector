@@ -306,5 +306,13 @@ namespace Hgame_selector
 
             dump = null;
         }
+
+        private void AddForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

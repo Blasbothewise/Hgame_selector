@@ -70,5 +70,13 @@ namespace Hgame_selector
                 connTest_tbx.Text = "Failed";
             }
         }
+
+        private void ConfigForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }
