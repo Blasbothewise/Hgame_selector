@@ -143,7 +143,7 @@ namespace Hgame_selector
 
         public string generate_dlsite_url(string code)
         {
-            try //fix to allways use RJ
+            try
             {
                 string suffixCode = "";
 
