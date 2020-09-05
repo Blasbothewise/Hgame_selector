@@ -291,7 +291,7 @@
             this.srch_typ_Cbox.Items.AddRange(new object[] {
             "Name",
             "Developer",
-            "Genre"});
+            "Tag"});
             this.srch_typ_Cbox.Location = new System.Drawing.Point(227, 14);
             this.srch_typ_Cbox.Name = "srch_typ_Cbox";
             this.srch_typ_Cbox.Size = new System.Drawing.Size(78, 21);

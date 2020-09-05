@@ -65,7 +65,7 @@ namespace Hgame_selector
 
             for (int i = 0; i < Hgames.Count; i++)
             {
-                if (srchType.Equals("Genre"))
+                if (srchType.Equals("Tag"))
                 {
                     for (int i2 = 0; i2 < Hgames[i].genres.Count; i2++)
                     {
