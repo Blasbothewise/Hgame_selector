@@ -143,11 +143,16 @@ namespace Hgame_selector
 
         public string generate_dlsite_url(string code)
         {
-            try
+            try //fix to allways use RJ
             {
                 string suffixCode = "";
 
                 string rounded_code = (Math.Ceiling(Convert.ToDouble(code.Substring(2)) / 1000) * 1000).ToString();
+
+                while (rounded_code.Length < 6)
+                {
+                    rounded_code = "0" + rounded_code;
+                }
 
                 while (rounded_code.Length < 6)
                 {
@@ -156,7 +161,8 @@ namespace Hgame_selector
 
                 if (code.Substring(0, 2).Equals("RE"))
                 {
-                    suffixCode = "RE" + rounded_code;
+                    suffixCode = "RJ" + rounded_code;
+                    code = "RJ" + code.Substring(2);
                 }
                 else if (code.Substring(0, 2).Equals("RJ"))
                 {
