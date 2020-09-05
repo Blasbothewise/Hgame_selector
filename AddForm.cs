@@ -194,7 +194,7 @@ namespace Hgame_selector
 
             Mainform.col.AddHgame(new Hgame(Int32.Parse(nwID_tbx.Text), nwNm_tbx.Text, nwJPNm_tbx.Text, nwDv_tbx.Text, nwExe_tbx.Text, Path.GetFileName(nwIcn_tbx.Text), genres));
 
-            Mainform.col.genPool("", "All");
+            Mainform.regen_pool();
             Mainform.showPage();
             Mainform.WriteCol();
 

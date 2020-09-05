@@ -265,7 +265,7 @@ namespace Hgame_selector
                     }
                 }
 
-                Mainform.col.genPool("", "All");
+                Mainform.regen_pool();
                 Mainform.showPage();
                 
                 Mainform.WriteCol(); //Write collection
@@ -426,7 +426,7 @@ namespace Hgame_selector
 
                 Mainform.col.RemoveHgame(Mainform.col.GetHgame(ID));
 
-                Mainform.col.genPool("", "All");
+                Mainform.regen_pool();
                 Mainform.showPage();
 
                 clearEditForm();

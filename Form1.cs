@@ -29,6 +29,8 @@ namespace Hgame_selector
         private SslStream sslsteam;
         private NetworkStream stream;
 
+        private string srchTerm = "", srchType = "ALL";
+
         public Form1()
         {
 
@@ -222,6 +224,8 @@ namespace Hgame_selector
 
         public void search(string srchTerm, string srchType)
         {
+            this.srchTerm = srchTerm;
+            this.srchType = srchType;
 
             col.genPool(srchTerm, srchType);
             page_index = 0;
@@ -230,6 +234,11 @@ namespace Hgame_selector
             showPage();
 
             srch_tbx.Text = string.Empty;
+        }
+
+        public void regen_pool()
+        {
+            col.genPool(srchTerm,srchType);
         }
 
         private void deserialiseJSON()
