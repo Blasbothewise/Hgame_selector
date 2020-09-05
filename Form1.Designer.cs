@@ -488,7 +488,7 @@
             this.Odr_lbl.Name = "Odr_lbl";
             this.Odr_lbl.Size = new System.Drawing.Size(50, 13);
             this.Odr_lbl.TabIndex = 19;
-            this.Odr_lbl.Text = "Order: by";
+            this.Odr_lbl.Text = "Order by:";
             // 
             // Odr_cbx
             // 
@@ -502,6 +502,7 @@
             this.Odr_cbx.Name = "Odr_cbx";
             this.Odr_cbx.Size = new System.Drawing.Size(121, 21);
             this.Odr_cbx.TabIndex = 20;
+            this.Odr_cbx.Text = "Addition order";
             // 
             // Form1
             // 
