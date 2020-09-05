@@ -69,6 +69,8 @@
             this.Col_opt_3_btn = new System.Windows.Forms.Button();
             this.Col_opt_2_btn = new System.Windows.Forms.Button();
             this.Col_opt_1_btn = new System.Windows.Forms.Button();
+            this.Odr_lbl = new System.Windows.Forms.Label();
+            this.Odr_cbx = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.Col_Bx.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +83,7 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(874, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -189,6 +191,8 @@
             // 
             // Col_Bx
             // 
+            this.Col_Bx.Controls.Add(this.Odr_cbx);
+            this.Col_Bx.Controls.Add(this.Odr_lbl);
             this.Col_Bx.Controls.Add(this.Col_opt_15_btn);
             this.Col_Bx.Controls.Add(this.Col_opt_14_btn);
             this.Col_Bx.Controls.Add(this.Col_opt_13_btn);
@@ -215,7 +219,7 @@
             this.Col_Bx.Controls.Add(this.Col_opt_1_btn);
             this.Col_Bx.Location = new System.Drawing.Point(12, 27);
             this.Col_Bx.Name = "Col_Bx";
-            this.Col_Bx.Size = new System.Drawing.Size(669, 622);
+            this.Col_Bx.Size = new System.Drawing.Size(853, 622);
             this.Col_Bx.TabIndex = 1;
             this.Col_Bx.TabStop = false;
             this.Col_Bx.Text = "Collection";
@@ -477,12 +481,34 @@
             this.Col_opt_1_btn.Click += new System.EventHandler(this.Col_opt_1_btn_Click);
             this.Col_opt_1_btn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Col_opt_1_btn_MouseDown);
             // 
+            // Odr_lbl
+            // 
+            this.Odr_lbl.AutoSize = true;
+            this.Odr_lbl.Location = new System.Drawing.Point(661, 16);
+            this.Odr_lbl.Name = "Odr_lbl";
+            this.Odr_lbl.Size = new System.Drawing.Size(50, 13);
+            this.Odr_lbl.TabIndex = 19;
+            this.Odr_lbl.Text = "Order: by";
+            // 
+            // Odr_cbx
+            // 
+            this.Odr_cbx.FormattingEnabled = true;
+            this.Odr_cbx.Items.AddRange(new object[] {
+            "Addition order",
+            "Developers",
+            "Name asc",
+            "Name desc"});
+            this.Odr_cbx.Location = new System.Drawing.Point(717, 12);
+            this.Odr_cbx.Name = "Odr_cbx";
+            this.Odr_cbx.Size = new System.Drawing.Size(121, 21);
+            this.Odr_cbx.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(689, 652);
+            this.ClientSize = new System.Drawing.Size(874, 652);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Col_Bx);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -542,6 +568,8 @@
         private System.Windows.Forms.ToolStripMenuItem importEverythingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportEverythingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem VNDBtagArchiveToolStripMenuItem;
+        private System.Windows.Forms.ComboBox Odr_cbx;
+        private System.Windows.Forms.Label Odr_lbl;
     }
 }
 
