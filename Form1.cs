@@ -29,7 +29,7 @@ namespace Hgame_selector
         private SslStream sslsteam;
         private NetworkStream stream;
 
-        private string srchTerm = "", srchType = "ALL";
+        private string srchTerm = "", srchType = "All";
 
         public Form1()
         {
