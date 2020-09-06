@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json; //Reducing typing significantly
 using System.Drawing; //For bitmaps
-using System.IO; //For reading and writing JSON 
+using System.IO; //For reading and writing JSON
 using System.Collections.Generic; // For list and other things
 using System.Linq; //For ToList
 
@@ -12,6 +12,7 @@ using System.Threading;
 using System.Net.Sockets; //for tcp
 using System.Net; //Used for downloading dlsite images
 using System.Net.Security; //SSL
+using System.IO.Compression; //Zip
 
 
 using System.Windows.Forms;
@@ -45,9 +46,9 @@ namespace Hgame_selector
                 Directory.CreateDirectory(Application.StartupPath + "\\src\\images");
             }
 
-            if (!Directory.Exists(Application.StartupPath + "\\src\\backup"))
+            if (!Directory.Exists(Application.StartupPath + "\\backup"))
             {
-                Directory.CreateDirectory(Application.StartupPath + "\\src\\backup");
+                Directory.CreateDirectory(Application.StartupPath + "\\backup");
             }
 
             showPage();
@@ -821,9 +822,9 @@ namespace Hgame_selector
             {
                 string path = dialog.FileName;
 
-                if (!Directory.Exists(Application.StartupPath + "\\src\\backup"))
+                if (!Directory.Exists(Application.StartupPath + "\\backup"))
                 {
-                    Directory.CreateDirectory(Application.StartupPath + "\\src\\backup");
+                    Directory.CreateDirectory(Application.StartupPath + "\\backup");
                 }
 
                 if (refresh == true)
@@ -834,12 +835,12 @@ namespace Hgame_selector
                     }
                 }
 
-                if (File.Exists(@Application.StartupPath + "\\src\\backup\\" + filename))
+                if (File.Exists(@Application.StartupPath + "\\backup\\" + filename))
                 {
-                    File.Delete(@Application.StartupPath + "\\src\\backup\\" + filename);
+                    File.Delete(@Application.StartupPath + "\\backup\\" + filename);
                 }
 
-                File.Copy(dir, @Application.StartupPath + "\\src\\backup\\" + filename);
+                File.Copy(dir, @Application.StartupPath + "\\backup\\" + filename);
 
                 if (File.Exists(dir))
                 {
@@ -876,8 +877,6 @@ namespace Hgame_selector
 
         private void saveFile(String dir, string filter, int filterIndex, string title, string filename)
         {
-            Stream save_stream = new FileStream(dir, FileMode.Append, FileAccess.Write);
-
             SaveFileDialog save = new SaveFileDialog();
 
             save.Filter = filter;
@@ -895,6 +894,93 @@ namespace Hgame_selector
                 }
 
                 File.Copy(dir, save.FileName);
+            }
+        }
+
+        private void importEverythingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dir = @".\src";
+            string filter = "Zip files (*.zip)|*.zip|All files (*.*)|*.*";
+
+            zip_import(dir, filter, 1, "Import Everything", @".\backup\src.zip", true, "src");
+        }
+
+        private void zip_import(string dir, string filter, int filterIndex, string title, string backup_path, bool refresh, string r_type)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;
+            dialog.FilterIndex = filterIndex;
+            dialog.Title = title;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = dialog.FileName;
+
+                if (!Directory.Exists(Application.StartupPath + "\\backup"))
+                {
+                    Directory.CreateDirectory(Application.StartupPath + "\\backup");
+                }
+
+                if (refresh == true)
+                {
+                    if (r_type.Equals("src"))
+                    {
+                        clear_collection();
+                    }
+                }
+
+                if (File.Exists(backup_path))
+                {
+                    File.Delete(backup_path);
+                }
+
+                ZipFile.CreateFromDirectory(dir, backup_path);
+
+                if (Directory.Exists(dir))
+                {
+                    Directory.Delete(dir, true);
+                }
+
+                ZipFile.ExtractToDirectory(dialog.FileName,dir);
+
+                if (refresh == true)
+                {
+                    if (r_type.Equals("src"))
+                    {
+                        refresh_collection();
+                        deserialiseConfig();
+                        relog();
+                    }
+                }
+            }
+        }
+
+        private void exportEverythingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dir = @".\src";
+            string filter = "Zip files (*.zip)|*.zip|All files (*.*)|*.*";
+
+            zip_save(dir, filter, 1, "Export everything", "src.zip");
+        }
+
+        private void zip_save(string dir, string filter, int filterIndex, string title, string filename)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = filter;
+            save.FilterIndex = filterIndex;
+            save.Title = title;
+            save.RestoreDirectory = true;
+
+            save.FileName = filename;
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(save.FileName))
+                {
+                    File.Delete(save.FileName);
+                }
+
+                ZipFile.CreateFromDirectory(dir, save.FileName);
             }
         }
 

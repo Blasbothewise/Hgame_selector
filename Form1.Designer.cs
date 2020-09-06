@@ -134,12 +134,14 @@
             this.importEverythingToolStripMenuItem.Name = "importEverythingToolStripMenuItem";
             this.importEverythingToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.importEverythingToolStripMenuItem.Text = "Import Everything";
+            this.importEverythingToolStripMenuItem.Click += new System.EventHandler(this.importEverythingToolStripMenuItem_Click);
             // 
             // exportEverythingToolStripMenuItem
             // 
             this.exportEverythingToolStripMenuItem.Name = "exportEverythingToolStripMenuItem";
             this.exportEverythingToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.exportEverythingToolStripMenuItem.Text = "Export Everything";
+            this.exportEverythingToolStripMenuItem.Click += new System.EventHandler(this.exportEverythingToolStripMenuItem_Click);
             // 
             // VNDBtagArchiveToolStripMenuItem
             // 
