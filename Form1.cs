@@ -37,12 +37,17 @@ namespace Hgame_selector
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             deserialiseJSON();
-            col.genPool("","All");
+            col.genPool("", "All");
             col.sortPool(Odr_cbx.Text);
 
             if (!Directory.Exists(Application.StartupPath + "\\src\\images"))
             {
                 Directory.CreateDirectory(Application.StartupPath + "\\src\\images");
+            }
+
+            if (!Directory.Exists(Application.StartupPath + "\\src\\backup"))
+            {
+                Directory.CreateDirectory(Application.StartupPath + "\\src\\backup");
             }
 
             showPage();
@@ -58,7 +63,7 @@ namespace Hgame_selector
                 login();
             }
         }
-         
+
         private void login_basic()
         {
             sendCommand("login {\"protocol\":1,\"client\":\"VN_selector\",\"clientver\":0.7}");
@@ -66,7 +71,7 @@ namespace Hgame_selector
 
         private void login()
         {
-            String response = sendCommand("login {\"protocol\":1,\"client\":\"VN_selector\",\"clientver\":0.7,\"username\":\"" + conf.User + "\",\"password\":\"" + conf.Pass + "\"}"); 
+            String response = sendCommand("login {\"protocol\":1,\"client\":\"VN_selector\",\"clientver\":0.7,\"username\":\"" + conf.User + "\",\"password\":\"" + conf.Pass + "\"}");
         }
 
         public Boolean testLogin(String usr, String pass)
@@ -104,7 +109,7 @@ namespace Hgame_selector
                 sslsteam = new SslStream(stream);
 
                 sslsteam.AuthenticateAsClient("api.vndb.org");
-               
+
             }
             catch (ArgumentNullException e)
             {
@@ -113,6 +118,21 @@ namespace Hgame_selector
             catch (SocketException e)
             {
                 Console.WriteLine("SocketException: {0}", e);
+            }
+        }
+
+        public void relog()
+        {
+            closeConn();
+            openConn();
+
+            if (conf.UseCreds == false)
+            {
+                login_basic();
+            }
+            else
+            {
+                login();
             }
         }
 
@@ -241,7 +261,7 @@ namespace Hgame_selector
 
         public void regen_pool()
         {
-            col.genPool(srchTerm,srchType);
+            col.genPool(srchTerm, srchType);
             col.sortPool(Odr_cbx.Text);
         }
 
@@ -252,6 +272,17 @@ namespace Hgame_selector
                 Directory.CreateDirectory(Application.StartupPath + "\\src");
             }
 
+
+            deserialiseCollection();
+
+            deserialiseConfig();
+
+            //Tags
+
+        }
+
+        private void deserialiseCollection()
+        {
             //Collection
 
             if (!File.Exists(Application.StartupPath + "\\src\\HgameCollection.json"))
@@ -285,7 +316,10 @@ namespace Hgame_selector
             {
                 Console.WriteLine("Error: " + ex.Message.ToString());
             }
+        }
 
+        private void deserialiseConfig()
+        {
             //Config
 
             if (!File.Exists(Application.StartupPath + "\\src\\Config.json"))
@@ -315,10 +349,6 @@ namespace Hgame_selector
             {
                 Console.WriteLine("Error: " + ex.Message.ToString());
             }
-
-            
-            //Tags
-
         }
 
         public void showPage()
@@ -612,7 +642,7 @@ namespace Hgame_selector
 
             Col_opt_1_btn.Width = Convert.ToInt32(w);
             Col_opt_1_btn.Height = Convert.ToInt32(h);
-            Col_opt_1_btn.Location = new Point(6,40);
+            Col_opt_1_btn.Location = new Point(6, 40);
 
             Col_opt_2_btn.Width = Convert.ToInt32(w);
             Col_opt_2_btn.Height = Convert.ToInt32(h);
@@ -678,12 +708,12 @@ namespace Hgame_selector
             Pge_lft_btn.Height = Col_Bx.Height - ((h * 3) + 46);
             Pge_lft_btn.Location = new Point((6 + w) - Pge_lft_btn.Width, 40 + (h_4 * 3));
 
-            if(Convert.ToInt32(Pge_lft_btn.Height * 0.9) != 0)
+            if (Convert.ToInt32(Pge_lft_btn.Height * 0.9) != 0)
             {
                 page_lbl.Font = new Font(page_lbl.Font.Name, Convert.ToInt32(Pge_lft_btn.Height * 0.9), page_lbl.Font.Style, page_lbl.Font.Unit);
             }
 
-            
+
             page_lbl.Location = new Point((Col_Bx.Width / 2) - (page_lbl.Width / 2), (Col_Bx.Height - (Pge_lft_btn.Height / 2)) - (page_lbl.Height / 2));
 
             pge_rt_btn.Width = button_width;
@@ -720,11 +750,11 @@ namespace Hgame_selector
                 EditForm edit = new EditForm(this, edit_Hgame);
 
                 edit.ShowDialog();
-            
+
             }
             catch
-            { 
-            
+            {
+
             }
         }
 
@@ -732,6 +762,86 @@ namespace Hgame_selector
         {
             AddForm add = new AddForm(this);
             add.ShowDialog();
+        }
+
+        private void importConfigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dir = Application.StartupPath + "\\src\\Config.json";
+            string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            importFile(dir, filter, 2, "Import Config", "Config.json",false,"");
+
+            deserialiseConfig();
+            relog();
+        }
+
+        private void importCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dir = Application.StartupPath + "\\src\\HgameCollection.json";
+            string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            importFile(dir, filter, 2, "Import Collection", "HgameCollection.json",true, "col");
+        }
+
+        private void clear_collection()
+        {
+            clearPage();
+            col = new Collection();
+         }
+
+        private void refresh_collection()
+        {
+            deserialiseCollection();
+
+            col.genPool("", "All");
+            col.sortPool(Odr_cbx.Text);
+            showPage();
+        }
+
+        private void importFile(String dir, string filter, int filterIndex, string title, string filename, bool refresh, string r_type)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;
+            dialog.FilterIndex = filterIndex;
+            dialog.Title = title;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = dialog.FileName;
+
+                if (!Directory.Exists(Application.StartupPath + "\\src\\backup"))
+                {
+                    Directory.CreateDirectory(Application.StartupPath + "\\src\\backup");
+                }
+
+                if (refresh == true)
+                {
+                    if (r_type.Equals("col"))
+                    {
+                        clear_collection();
+                    }
+                }
+
+                if (File.Exists(@Application.StartupPath + "\\src\\backup\\" + filename))
+                {
+                    File.Delete(@Application.StartupPath + "\\src\\backup\\" + filename);
+                }
+
+                File.Copy(dir, @Application.StartupPath + "\\src\\backup\\" + filename);
+
+                if (File.Exists(dir))
+                {
+                    File.Delete(dir);
+                }
+
+                File.Copy(dialog.FileName,dir);
+
+                if (refresh == true)
+                {
+                    if (r_type.Equals("col"))
+                    {
+                        refresh_collection();
+                    }
+                }
+            }
         }
 
         private void exportConfigToolStripMenuItem_Click(object sender, EventArgs e)

@@ -11,21 +11,10 @@ namespace Hgame_selector
         private int total = 0, last_index; //last index
         private List<Hgame> hgames, page = new List<Hgame>(), Itempool = new List<Hgame>();
 
-        public Collection(int total, List<Hgame> hgames)
-        {
-            this.Total = total;
-            this.Hgames = hgames;
-            this.last_index = (int) hgames.Count() / 15;
-
-            Console.WriteLine("LAST INDEX: " + last_index);
-            Console.WriteLine("Hgames: " + hgames.Count);
-
-            genPool("", "All");
-
-            genPage(0);
-        }
-
+        public Collection()
+        { 
         
+        }
 
         public int Total { get => total; set => total = value; }
         public List<Hgame> Hgames { get => hgames; set => hgames = value; }

@@ -106,12 +106,14 @@
             this.importConfigToolStripMenuItem.Name = "importConfigToolStripMenuItem";
             this.importConfigToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.importConfigToolStripMenuItem.Text = "Import Config";
+            this.importConfigToolStripMenuItem.Click += new System.EventHandler(this.importConfigToolStripMenuItem_Click);
             // 
             // importCollectionToolStripMenuItem
             // 
             this.importCollectionToolStripMenuItem.Name = "importCollectionToolStripMenuItem";
             this.importCollectionToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.importCollectionToolStripMenuItem.Text = "Import Collection";
+            this.importCollectionToolStripMenuItem.Click += new System.EventHandler(this.importCollectionToolStripMenuItem_Click);
             // 
             // exportConfigToolStripMenuItem
             // 
