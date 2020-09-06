@@ -38,6 +38,7 @@ namespace Hgame_selector
             WindowState = FormWindowState.Maximized;
             deserialiseJSON();
             col.genPool("","All");
+            col.sortPool(Odr_cbx.Text);
 
             if (!Directory.Exists(Application.StartupPath + "\\src\\images"))
             {
@@ -228,6 +229,8 @@ namespace Hgame_selector
             this.srchType = srchType;
 
             col.genPool(srchTerm, srchType);
+            col.sortPool(Odr_cbx.Text);
+
             page_index = 0;
             page_lbl.Text = "" + 0 + "";
             col.genPage(page_index);
@@ -239,6 +242,7 @@ namespace Hgame_selector
         public void regen_pool()
         {
             col.genPool(srchTerm,srchType);
+            col.sortPool(Odr_cbx.Text);
         }
 
         private void deserialiseJSON()

@@ -102,6 +102,30 @@ namespace Hgame_selector
             last_index = (int)Itempool.Count() / 15;
         }
 
+        public void sortPool(string srtType)
+        {
+            if (srtType.Equals("Addition order / ID"))
+            {
+                Itempool = Itempool.OrderBy(x => x.id).ToList();
+            }
+            else if (srtType.Equals("Developer"))
+            {
+                Itempool = Itempool.OrderBy(x => x.dev).ToList();
+            }
+            else if (srtType.Equals("Name asc"))
+            {
+                Itempool = Itempool.OrderBy(x => x.name).ToList();
+            }
+            else if (srtType.Equals("Name desc"))
+            {
+                Itempool = Itempool.OrderByDescending(x => x.name).ToList();
+            }
+            else
+            {
+                Itempool = Itempool.OrderBy(x => x.id).ToList();
+            }
+        }
+
         public void AddHgame(Hgame input)
         {
             Hgames.Add(input);

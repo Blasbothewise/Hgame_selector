@@ -45,6 +45,8 @@
             this.rmvHgm_tlStpmnuitm = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Col_Bx = new System.Windows.Forms.GroupBox();
+            this.Odr_cbx = new System.Windows.Forms.ComboBox();
+            this.Odr_lbl = new System.Windows.Forms.Label();
             this.Col_opt_15_btn = new System.Windows.Forms.Button();
             this.Col_opt_14_btn = new System.Windows.Forms.Button();
             this.Col_opt_13_btn = new System.Windows.Forms.Button();
@@ -69,8 +71,6 @@
             this.Col_opt_3_btn = new System.Windows.Forms.Button();
             this.Col_opt_2_btn = new System.Windows.Forms.Button();
             this.Col_opt_1_btn = new System.Windows.Forms.Button();
-            this.Odr_lbl = new System.Windows.Forms.Label();
-            this.Odr_cbx = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.Col_Bx.SuspendLayout();
             this.SuspendLayout();
@@ -223,6 +223,29 @@
             this.Col_Bx.TabIndex = 1;
             this.Col_Bx.TabStop = false;
             this.Col_Bx.Text = "Collection";
+            // 
+            // Odr_cbx
+            // 
+            this.Odr_cbx.FormattingEnabled = true;
+            this.Odr_cbx.Items.AddRange(new object[] {
+            "Addition order / ID",
+            "Developer",
+            "Name asc",
+            "Name desc"});
+            this.Odr_cbx.Location = new System.Drawing.Point(717, 12);
+            this.Odr_cbx.Name = "Odr_cbx";
+            this.Odr_cbx.Size = new System.Drawing.Size(121, 21);
+            this.Odr_cbx.TabIndex = 20;
+            this.Odr_cbx.Text = "Addition order / ID";
+            // 
+            // Odr_lbl
+            // 
+            this.Odr_lbl.AutoSize = true;
+            this.Odr_lbl.Location = new System.Drawing.Point(661, 16);
+            this.Odr_lbl.Name = "Odr_lbl";
+            this.Odr_lbl.Size = new System.Drawing.Size(50, 13);
+            this.Odr_lbl.TabIndex = 19;
+            this.Odr_lbl.Text = "Order by:";
             // 
             // Col_opt_15_btn
             // 
@@ -480,29 +503,6 @@
             this.Col_opt_1_btn.UseVisualStyleBackColor = true;
             this.Col_opt_1_btn.Click += new System.EventHandler(this.Col_opt_1_btn_Click);
             this.Col_opt_1_btn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Col_opt_1_btn_MouseDown);
-            // 
-            // Odr_lbl
-            // 
-            this.Odr_lbl.AutoSize = true;
-            this.Odr_lbl.Location = new System.Drawing.Point(661, 16);
-            this.Odr_lbl.Name = "Odr_lbl";
-            this.Odr_lbl.Size = new System.Drawing.Size(50, 13);
-            this.Odr_lbl.TabIndex = 19;
-            this.Odr_lbl.Text = "Order by:";
-            // 
-            // Odr_cbx
-            // 
-            this.Odr_cbx.FormattingEnabled = true;
-            this.Odr_cbx.Items.AddRange(new object[] {
-            "Addition order",
-            "Developers",
-            "Name asc",
-            "Name desc"});
-            this.Odr_cbx.Location = new System.Drawing.Point(717, 12);
-            this.Odr_cbx.Name = "Odr_cbx";
-            this.Odr_cbx.Size = new System.Drawing.Size(121, 21);
-            this.Odr_cbx.TabIndex = 20;
-            this.Odr_cbx.Text = "Addition order";
             // 
             // Form1
             // 
