@@ -38,14 +38,14 @@ namespace Hgame_selector
                 temp_icon.Dispose();
             }
 
-            if (File.Exists(Application.StartupPath + "\\src\\images\\temp" + tempExtension))
+            if (File.Exists(@".\src\images\temp" + tempExtension))
             {
                 if (temp_icon != null)
                 {
                     temp_icon.Dispose();
                 }
 
-                File.Delete(Application.StartupPath + "\\src\\images\\temp" + tempExtension);
+                File.Delete(@".\src\images\temp" + tempExtension);
             }
         }
         
@@ -158,24 +158,24 @@ namespace Hgame_selector
                 //String fileName = Path.GetFileName(path);
                 string extension = Path.GetExtension(path);
 
-                if (File.Exists(Application.StartupPath + "\\src\\images\\temp" + extension))
+                if (File.Exists(@".\src\images\temp" + extension))
                 {
                     if (temp_icon != null)
                     {
                         temp_icon.Dispose();
                     }
 
-                    File.Delete(Application.StartupPath + "\\src\\images\\temp" + extension);
+                    File.Delete(@".\src\images\temp" + extension);
                 }
 
-                File.Copy(path, Application.StartupPath + "\\src\\images\\temp" + extension);
+                File.Copy(path, @".\src\images\temp" + extension);
 
 
-                temp_icon = new Bitmap(@Application.StartupPath + "\\src\\images\\temp" + extension);
+                temp_icon = new Bitmap(@".\src\images\temp" + extension);
                 nwHg_img.BackgroundImage = temp_icon;
 
 
-                nwIcn_tbx.Text = Application.StartupPath + "\\src\\images\\" + nwID_tbx.Text + extension;
+                nwIcn_tbx.Text = @".\src\images\" + nwID_tbx.Text + extension;
 
                 tempExtension = extension;
             }
@@ -185,12 +185,12 @@ namespace Hgame_selector
         {
             List<string> genres = nwGen_tbx.Text.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList();
 
-            File.Copy(Application.StartupPath + "\\src\\images\\temp" + tempExtension, nwIcn_tbx.Text);
+            File.Copy(@".\src\images\temp" + tempExtension, nwIcn_tbx.Text);
 
             nwHg_img.BackgroundImage = null;
             temp_icon.Dispose();
 
-            File.Delete(Application.StartupPath + "\\src\\images\\temp" + tempExtension);
+            File.Delete(@".\src\images\temp" + tempExtension);
 
             Mainform.col.AddHgame(new Hgame(Int32.Parse(nwID_tbx.Text), nwNm_tbx.Text, nwJPNm_tbx.Text, nwDv_tbx.Text, nwExe_tbx.Text, Path.GetFileName(nwIcn_tbx.Text), genres));
 

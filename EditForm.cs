@@ -35,14 +35,14 @@ namespace Hgame_selector
                 tempEdit_icon.Dispose();
             }
 
-            if (File.Exists(Application.StartupPath + "\\src\\images\\Edittemp" + tempExtension))
+            if (File.Exists(@".\src\images\Edittemp" + tempExtension))
             {
                 if (tempEdit_icon != null)
                 {
                     tempEdit_icon.Dispose();
                 }
 
-                File.Delete(Application.StartupPath + "\\src\\images\\Edittemp" + tempExtension);
+                File.Delete(@".\src\images\Edittemp" + tempExtension);
             }
         }
 
@@ -63,9 +63,9 @@ namespace Hgame_selector
             EdtNm_tbx.Text = edit_Hgame.name;
             EdtJPNm_tbx.Text = edit_Hgame.jp_Name;
             EdtExe_tbx.Text = edit_Hgame.exePath;
-            EdtIcn_tbx.Text = Application.StartupPath + "\\src\\images\\" + edit_Hgame.iconName;
+            EdtIcn_tbx.Text = @".\src\images\" + edit_Hgame.iconName;
 
-            editOld_icon = new Bitmap(@Application.StartupPath + "\\src\\images\\" + edit_Hgame.iconName);
+            editOld_icon = new Bitmap(@".\src\images\" + edit_Hgame.iconName);
             EdtHg_img.BackgroundImage = editOld_icon;
 
             EdtDv_tbx.Text = edit_Hgame.dev;
@@ -229,18 +229,18 @@ namespace Hgame_selector
                     old_toEdit.exePath = EdtExe_tbx.Text;
                 }
 
-                if (File.Exists(Application.StartupPath + "\\src\\images\\Edittemp" + tempExtension))
+                if (File.Exists(@".\src\images\Edittemp" + tempExtension))
                 {
-                    if (File.Exists(Application.StartupPath + "\\src\\images\\" + EdtHg_srch_tbx.Text + tempExtension))
+                    if (File.Exists(@".\src\images\" + EdtHg_srch_tbx.Text + tempExtension))
                     {
-                        File.Delete(Application.StartupPath + "\\src\\images\\" + EdtHg_srch_tbx.Text + tempExtension);
+                        File.Delete(@".\src\images\" + EdtHg_srch_tbx.Text + tempExtension);
                     }
 
-                    File.Copy(Application.StartupPath + "\\src\\images\\Edittemp" + tempExtension, Application.StartupPath + "\\src\\images\\" + EdtHg_srch_tbx.Text + tempExtension);
+                    File.Copy(@".\src\images\Edittemp" + tempExtension, @".\src\images\" + EdtHg_srch_tbx.Text + tempExtension);
 
                     EdtHg_img.BackgroundImage = null;
                     tempEdit_icon.Dispose();
-                    File.Delete(Application.StartupPath + "\\src\\images\\Edittemp" + tempExtension);
+                    File.Delete(@".\src\images\Edittemp" + tempExtension);
                     old_toEdit.iconName = Path.GetFileName(EdtIcn_tbx.Text);
                 }
                 else
@@ -259,9 +259,9 @@ namespace Hgame_selector
 
                 if (!old_toEdit.iconName.Equals(oldicon_dir))
                 {
-                    if (File.Exists(Application.StartupPath + "\\src\\images\\" + oldicon_dir))
+                    if (File.Exists(@".\src\images\" + oldicon_dir))
                     {
-                        File.Delete(Application.StartupPath + "\\src\\images\\" + oldicon_dir);
+                        File.Delete(@".\src\images\" + oldicon_dir);
                     }
                 }
 
@@ -323,7 +323,7 @@ namespace Hgame_selector
                 String fileName = Path.GetFileName(path);
                 string extension = Path.GetExtension(path);
 
-                if (File.Exists(Application.StartupPath + "\\src\\images\\Edittemp" + extension))
+                if (File.Exists(@".\src\images\Edittemp" + extension))
                 {
                     try
                     {
@@ -332,7 +332,7 @@ namespace Hgame_selector
                             tempEdit_icon.Dispose();
                         }
 
-                        File.Delete(Application.StartupPath + "\\src\\images\\Edittemp" + extension);
+                        File.Delete(@".\src\images\Edittemp" + extension);
                     }
                     catch (IOException ex)
                     {
@@ -340,9 +340,9 @@ namespace Hgame_selector
                     }
                 }
 
-                File.Copy(path, Application.StartupPath + "\\src\\images\\Edittemp" + extension);
+                File.Copy(path, @".\src\images\Edittemp" + extension);
 
-                tempEdit_icon = new Bitmap(@Application.StartupPath + "\\src\\images\\Edittemp" + extension);
+                tempEdit_icon = new Bitmap(@".\src\images\Edittemp" + extension);
                 EdtHg_img.BackgroundImage = tempEdit_icon;
 
                 if (editOld_icon != null)
@@ -350,7 +350,7 @@ namespace Hgame_selector
                     editOld_icon.Dispose();
                 }
 
-                EdtIcn_tbx.Text = Application.StartupPath + "\\src\\images\\" + EdtHg_srch_tbx.Text + extension;
+                EdtIcn_tbx.Text = @".\src\images\" + EdtHg_srch_tbx.Text + extension;
 
                 tempExtension = extension;
             }
@@ -482,9 +482,9 @@ namespace Hgame_selector
                         EdtNm_tbx.Text = toEdit.name;
                         EdtJPNm_tbx.Text = toEdit.jp_Name;
                         EdtExe_tbx.Text = toEdit.exePath;
-                        EdtIcn_tbx.Text = Application.StartupPath + "\\src\\images\\" + toEdit.iconName;
+                        EdtIcn_tbx.Text = @".\src\images\" + toEdit.iconName;
 
-                        editOld_icon = new Bitmap(@Application.StartupPath + "\\src\\images\\" + toEdit.iconName);
+                        editOld_icon = new Bitmap(@".\src\images\" + toEdit.iconName);
                         EdtHg_img.BackgroundImage = editOld_icon;
 
                         EdtDv_tbx.Text = toEdit.dev;

@@ -41,14 +41,14 @@ namespace Hgame_selector
             col.genPool("", "All");
             col.sortPool(Odr_cbx.Text);
 
-            if (!Directory.Exists(Application.StartupPath + "\\src\\images"))
+            if (!Directory.Exists(@".\src\images"))
             {
-                Directory.CreateDirectory(Application.StartupPath + "\\src\\images");
+                Directory.CreateDirectory(@".\src\images");
             }
 
-            if (!Directory.Exists(Application.StartupPath + "\\backup"))
+            if (!Directory.Exists(@".\backup"))
             {
-                Directory.CreateDirectory(Application.StartupPath + "\\backup");
+                Directory.CreateDirectory(@".\backup");
             }
 
             showPage();
@@ -268,9 +268,9 @@ namespace Hgame_selector
 
         private void deserialiseJSON()
         {
-            if (!Directory.Exists(Application.StartupPath + "\\src"))
+            if (!Directory.Exists(@".\src"))
             {
-                Directory.CreateDirectory(Application.StartupPath + "\\src");
+                Directory.CreateDirectory(@".\src");
             }
 
 
@@ -286,10 +286,10 @@ namespace Hgame_selector
         {
             //Collection
 
-            if (!File.Exists(Application.StartupPath + "\\src\\HgameCollection.json"))
+            if (!File.Exists(@".\src\HgameCollection.json"))
             {
 
-                using (StreamWriter r = new StreamWriter(Application.StartupPath + "\\src\\HgameCollection.json"))
+                using (StreamWriter r = new StreamWriter(@".\src\HgameCollection.json"))
                 {
                     r.WriteLine("{");
                     r.WriteLine("   \"Total\" : 1,");
@@ -304,7 +304,7 @@ namespace Hgame_selector
 
             string strJSON_col = string.Empty;
 
-            using (StreamReader r = new StreamReader(Application.StartupPath + "\\src\\HgameCollection.json"))
+            using (StreamReader r = new StreamReader(@".\src\HgameCollection.json"))
             {
                 strJSON_col = r.ReadToEnd();
             }
@@ -323,9 +323,9 @@ namespace Hgame_selector
         {
             //Config
 
-            if (!File.Exists(Application.StartupPath + "\\src\\Config.json"))
+            if (!File.Exists(@".\src\Config.json"))
             {
-                using (StreamWriter r = new StreamWriter(Application.StartupPath + "\\src\\Config.json"))
+                using (StreamWriter r = new StreamWriter(@".\src\Config.json"))
                 {
                     r.WriteLine("{");
                     r.WriteLine("   \"User\" : \"\",");
@@ -337,7 +337,7 @@ namespace Hgame_selector
 
             string strJSON_conf = string.Empty;
 
-            using (StreamReader r = new StreamReader(Application.StartupPath + "\\src\\Config.json"))
+            using (StreamReader r = new StreamReader(@".\src\Config.json"))
             {
                 strJSON_conf = r.ReadToEnd();
             }
@@ -381,77 +381,77 @@ namespace Hgame_selector
 
                 if (i == 0)
                 {
-                    pg_1 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_1 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_1;
                 }
                 else if (i == 1)
                 {
-                    pg_2 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_2 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_2;
                 }
                 else if (i == 2)
                 {
-                    pg_3 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_3 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_3;
                 }
                 else if (i == 3)
                 {
-                    pg_4 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_4 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_4;
                 }
                 else if (i == 4)
                 {
-                    pg_5 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_5 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_5;
                 }
                 else if (i == 5)
                 {
-                    pg_6 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_6 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_6;
                 }
                 else if (i == 6)
                 {
-                    pg_7 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_7 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_7;
                 }
                 else if (i == 7)
                 {
-                    pg_8 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_8 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_8;
                 }
                 else if (i == 8)
                 {
-                    pg_9 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_9 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_9;
                 }
                 else if (i == 9)
                 {
-                    pg_10 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_10 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_10;
                 }
                 else if (i == 10)
                 {
-                    pg_11 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_11 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_11;
                 }
                 else if (i == 11)
                 {
-                    pg_12 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_12 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_12;
                 }
                 else if (i == 12)
                 {
-                    pg_13 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_13 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_13;
                 }
                 else if (i == 13)
                 {
-                    pg_14 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_14 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_14;
                 }
                 else if (i == 14)
                 {
-                    pg_15 = new Bitmap(@Application.StartupPath + "\\src\\images\\" + col.GetPage()[i].iconName);
+                    pg_15 = new Bitmap(@".\src\images\" + col.GetPage()[i].iconName);
                     btnArr[i].BackgroundImage = pg_15;
                 }
             }
@@ -625,7 +625,7 @@ namespace Hgame_selector
 
         public void WriteCol()
         {
-            File.WriteAllText(@Application.StartupPath + "\\src\\HgameCollection.json", JsonConvert.SerializeObject(col, Formatting.Indented));
+            File.WriteAllText(@".\src\HgameCollection.json", JsonConvert.SerializeObject(col, Formatting.Indented));
         }
 
         private void Form1_Load(object sender, EventArgs e) //On close form
@@ -781,7 +781,7 @@ namespace Hgame_selector
 
         private void importConfigToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string dir = Application.StartupPath + "\\src\\Config.json";
+            string dir = @".\src\Config.json";
             string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
             importFile(dir, filter, 2, "Import Config", "Config.json",false,"");
 
@@ -791,7 +791,7 @@ namespace Hgame_selector
 
         private void importCollectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string dir = Application.StartupPath + "\\src\\HgameCollection.json";
+            string dir = @".\src\HgameCollection.json";
             string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
             importFile(dir, filter, 2, "Import Collection", "HgameCollection.json",true, "col");
         }
@@ -822,9 +822,9 @@ namespace Hgame_selector
             {
                 string path = dialog.FileName;
 
-                if (!Directory.Exists(Application.StartupPath + "\\backup"))
+                if (!Directory.Exists(@".\backup"))
                 {
-                    Directory.CreateDirectory(Application.StartupPath + "\\backup");
+                    Directory.CreateDirectory(@".\backup");
                 }
 
                 if (refresh == true)
@@ -835,12 +835,12 @@ namespace Hgame_selector
                     }
                 }
 
-                if (File.Exists(@Application.StartupPath + "\\backup\\" + filename))
+                if (File.Exists(@".\backup\" + filename))
                 {
-                    File.Delete(@Application.StartupPath + "\\backup\\" + filename);
+                    File.Delete(@".\backup\" + filename);
                 }
 
-                File.Copy(dir, @Application.StartupPath + "\\backup\\" + filename);
+                File.Copy(dir, @".\backup\" + filename);
 
                 if (File.Exists(dir))
                 {
@@ -861,7 +861,7 @@ namespace Hgame_selector
 
         private void exportConfigToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string dir = Application.StartupPath + "\\src\\Config.json";
+            string dir = @".\src\Config.json";
             string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
 
             saveFile(dir, filter, 1, "Export config", "Config.json");
@@ -869,7 +869,7 @@ namespace Hgame_selector
 
         private void exportCollectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string dir = Application.StartupPath + "\\src\\HgameCollection.json";
+            string dir = @".\src\HgameCollection.json";
             string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
 
             saveFile(dir, filter, 1, "Export Collection", "HgameCollection.json");
@@ -916,9 +916,9 @@ namespace Hgame_selector
             {
                 string path = dialog.FileName;
 
-                if (!Directory.Exists(Application.StartupPath + "\\backup"))
+                if (!Directory.Exists(@".\backup"))
                 {
-                    Directory.CreateDirectory(Application.StartupPath + "\\backup");
+                    Directory.CreateDirectory(@".\backup");
                 }
 
                 if (refresh == true)
