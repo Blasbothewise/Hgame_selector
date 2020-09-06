@@ -457,26 +457,40 @@ namespace Hgame_selector
 
             page_lbl.Text = page_index.ToString();
 
-            if (page_index == 0)
-            {
-                Pge_start_btn.Enabled = false;
-                Pge_lft_btn.Enabled = false;
-                pge_rt_btn.Enabled = true;
-                Pge_end_btn.Enabled = true;
-            }
-            else if (page_index == col.get_Last_Index())
+
+            if (page_index > 0 && page_index < col.get_Last_Index())
             {
                 Pge_start_btn.Enabled = true;
                 Pge_lft_btn.Enabled = true;
-                pge_rt_btn.Enabled = false;
-                Pge_end_btn.Enabled = false;
+                pge_rt_btn.Enabled = true;
+                Pge_end_btn.Enabled = true;
             }
             else
             {
-                Pge_start_btn.Enabled = true;
-                Pge_lft_btn.Enabled = true;
-                pge_rt_btn.Enabled = true;
-                Pge_end_btn.Enabled = true;
+                if (page_index == 0)
+                {
+                    Pge_start_btn.Enabled = false;
+                    Pge_lft_btn.Enabled = false;
+
+                    if (page_index < col.get_Last_Index())
+                    {
+                        pge_rt_btn.Enabled = true;
+                        Pge_end_btn.Enabled = true;
+                    }
+
+                }
+
+                if (page_index == col.get_Last_Index())
+                {
+                    pge_rt_btn.Enabled = false;
+                    Pge_end_btn.Enabled = false;
+
+                    if (page_index > 0)
+                    {
+                        Pge_start_btn.Enabled = true;
+                        Pge_lft_btn.Enabled = true;
+                    }
+                }
             }
         }
 
