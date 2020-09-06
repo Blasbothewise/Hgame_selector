@@ -734,6 +734,51 @@ namespace Hgame_selector
             add.ShowDialog();
         }
 
+        private void exportConfigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dir = Application.StartupPath + "\\src\\Config.json";
+            string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+            saveFile(dir, filter, 1, "Export config", "Config.json");
+        }
+
+        private void exportCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dir = Application.StartupPath + "\\src\\HgameCollection.json";
+            string filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+            saveFile(dir, filter, 1, "Export Collection", "HgameCollection.json");
+        }
+
+        private void saveFile(String dir, string filter, int filterIndex, string title, string filename)
+        {
+            Stream save_stream = new FileStream(dir, FileMode.Append, FileAccess.Write);
+
+            SaveFileDialog save = new SaveFileDialog();
+
+            save.Filter = filter;
+            save.FilterIndex = filterIndex;
+            save.Title = title;
+            save.RestoreDirectory = true;
+
+            save.FileName = filename;
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(save.FileName))
+                {
+                    File.Delete(save.FileName);
+                }
+
+                File.Copy(dir, save.FileName);
+            }
+        }
+
+        private void VNDBtagArchiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void Conf_tlStpmnuitm_Click(object sender, EventArgs e)
         {
             ConfigForm conf = new ConfigForm(this);
@@ -860,11 +905,6 @@ namespace Hgame_selector
             {
                 edit_hgame(7);
             }
-        }
-
-        private void VNDBtagArchiveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Open file dialog
         }
 
         private void Col_opt_9_btn_Click(object sender, EventArgs e)

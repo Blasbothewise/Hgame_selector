@@ -118,12 +118,14 @@
             this.exportConfigToolStripMenuItem.Name = "exportConfigToolStripMenuItem";
             this.exportConfigToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.exportConfigToolStripMenuItem.Text = "Export Config";
+            this.exportConfigToolStripMenuItem.Click += new System.EventHandler(this.exportConfigToolStripMenuItem_Click);
             // 
             // exportCollectionToolStripMenuItem
             // 
             this.exportCollectionToolStripMenuItem.Name = "exportCollectionToolStripMenuItem";
             this.exportCollectionToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.exportCollectionToolStripMenuItem.Text = "Export Collection";
+            this.exportCollectionToolStripMenuItem.Click += new System.EventHandler(this.exportCollectionToolStripMenuItem_Click);
             // 
             // importEverythingToolStripMenuItem
             // 
